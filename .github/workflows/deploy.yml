@@ -1,0 +1,44 @@
+name: Deploy to Ionos
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: 📦 Install Dependencies
+      run: npm install
+
+    - name: 🏗️ Build Project
+      run: npm run build
+
+    - name: 📂 Sync files to Ionos via SFTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        
+        # 🔴 CRITICAL SETTINGS 🔴
+        protocol: sftp
+        port: 22
+        
+        # The folder where React builds your site
+        local-dir: ./dist/
+        
+        # The folder on Ionos (Root directory)
+        server-dir: ./
+        
+        # Safety measure to clean old files
+        dangerous-clean-slate: true
