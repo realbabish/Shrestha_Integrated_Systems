@@ -24,21 +24,12 @@ jobs:
       run: npm run build
 
     - name: 📂 Sync files to Ionos via SFTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      # We are switching to a Robot that speaks SFTP (Port 22)
+      uses: wangyucode/sftp-upload-action@v2.0.2
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        
-        # 🔴 CRITICAL SETTINGS 🔴
-        protocol: sftp
         port: 22
-        
-        # The folder where React builds your site
-        local-dir: ./dist/
-        
-        # The folder on Ionos (Root directory)
-        server-dir: ./
-        
-        # Safety measure to clean old files
-        dangerous-clean-slate: true
+        localDir: dist
+        remoteDir: /
