@@ -1,9 +1,10 @@
 import React from 'react';
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+
 import { 
   ShieldCheck, Building, Globe, Hospital, ChevronRight, 
-  Zap, Server, Cpu, Activity 
+  Zap, Server, Cpu, Activity, Camera, Clock 
 } from "lucide-react";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
@@ -11,54 +12,81 @@ import Footer from "../components/Footer";
 
 // --- COMPONENTS ---
 
+// Designed to sit right below the Hero buttons
+const AuditBanner = () => (
+  <div className="relative z-20 -mt-12 px-6">
+    <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+      <div className="flex flex-col md:flex-row items-center justify-between p-6 md:p-8 gap-6">
+        <div className="flex items-center gap-5">
+          <div className="p-3 bg-yellow-400 text-black rounded-full shrink-0">
+            <Clock size={28} />
+          </div>
+          <div>
+            <h3 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tight">
+              Free 15-Minute System Assessment
+            </h3>
+            <p className="text-gray-600 font-medium text-sm mt-1">
+              Identify legacy bottlenecks and security vulnerabilities with no obligation.
+            </p>
+          </div>
+        </div>
+        <Link 
+          to="/Quote" 
+          className="w-full md:w-auto text-center bg-black text-white px-8 py-4 font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:text-black transition-colors rounded-sm whitespace-nowrap"
+        >
+          Book Assessment
+        </Link>
+      </div>
+    </div>
+  </div>
+);
+
 const TechStack = () => {
   const brands = ["AVIGILON", "GENETEC", "ICT GX", "MERCURY", "HID", "KEYSCAN", "DSC", "HONEYWELL"];
   return (
-    <div className="bg-yellow-400 py-16 border-y-4 border-black relative overflow-hidden -skew-y-1">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 items-center">
+    <div className="bg-gray-50 py-12 border-b border-gray-200 relative overflow-hidden mt-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <p className="text-gray-500 font-bold text-xs uppercase tracking-[0.2em] mb-6">Authorized deployment for enterprise hardware</p>
+        <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 items-center">
           {brands.map((b) => (
-            <div key={b} className="group flex items-center gap-3 cursor-default">
-              <div className="w-3 h-3 bg-black rotate-45 group-hover:animate-spin" />
-              <span className="text-2xl md:text-4xl font-black text-black italic tracking-tighter hover:scale-110 transition-transform">
+            <div key={b} className="group flex items-center gap-2 cursor-default">
+              <div className="w-2 h-2 bg-yellow-400 rotate-45" />
+              <span className="text-xl md:text-2xl font-black text-gray-400 italic tracking-tighter hover:text-gray-900 transition-colors">
                 {b}
               </span>
             </div>
           ))}
         </div>
       </div>
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
     </div>
   );
 };
 
 const AuthoritySection = () => {
   const sectors = [
-    { icon: <Hospital size={40} />, title: "Healthcare", desc: "UHN, CAMH, Cogir, Chartwell", code: "MED-SEC" },
-    { icon: <Building size={40} />, title: "Institutional", desc: "City of Hamilton Infrastructure", code: "GOV-OPS" },
-    { icon: <Globe size={40} />, title: "Hospitality", desc: "Intercontinental, Hazelton, York Hotel", code: "LUX-ACC" },
-    { icon: <ShieldCheck size={40} />, title: "Commercial", desc: "Food Basics, Shoppers, Retail Chains", code: "ENT-RET" },
+    { icon: <Hospital size={32} />, title: "Healthcare", desc: "Regional Clinics & Care Facilities", code: "MED" },
+    { icon: <Building size={32} />, title: "Institutional", desc: "Municipal Infrastructure", code: "GOV" },
+    { icon: <Globe size={32} />, title: "Hospitality", desc: "Premium Hotels & Resorts", code: "LUX" },
+    { icon: <ShieldCheck size={32} />, title: "Commercial", desc: "Retail Chains & Warehousing", code: "COM" },
   ];
 
   return (
-    <section className="py-32 bg-[#050608] relative">
+    <section className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20 border-l-8 border-yellow-400 pl-8">
-          <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">
-            Reliability at <span className="text-yellow-400">Scale</span>
+        <div className="mb-16 border-l-4 border-yellow-400 pl-6">
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-gray-900">
+            Reliability at <span className="text-yellow-600">Scale</span>
           </h2>
-          <p className="text-gray-500 font-bold tracking-widest mt-4 uppercase">Deployed across Ontario's Critical Sectors</p>
+          <p className="text-gray-600 font-medium mt-2">Deployed across Ontario's core sectors.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {sectors.map((s, i) => (
-            <div key={i} className="p-10 bg-[#0a0c10] border border-white/10 hover:bg-yellow-400 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute top-4 right-4 text-[10px] font-black text-gray-700 group-hover:text-black/50 tracking-widest">{s.code}</div>
-              <div className="mb-8 text-yellow-400 group-hover:text-black group-hover:scale-110 transition-all duration-300">{s.icon}</div>
-              <h3 className="text-2xl font-black uppercase italic mb-4 group-hover:text-black transition-colors">{s.title}</h3>
-              <p className="text-gray-500 text-sm font-bold group-hover:text-black/80 transition-colors">{s.desc}</p>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 group-hover:h-0 transition-all" />
+            <div key={i} className="p-8 bg-white border border-gray-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300 group rounded-sm relative">
+              <div className="absolute top-4 right-4 text-[10px] font-black text-gray-400 group-hover:text-yellow-600 tracking-widest">{s.code}</div>
+              <div className="mb-6 text-yellow-600 group-hover:scale-110 transition-transform duration-300">{s.icon}</div>
+              <h3 className="text-xl font-black uppercase mb-2 text-gray-900">{s.title}</h3>
+              <p className="text-gray-600 text-sm">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -71,56 +99,55 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Shrestha Integrated Systems | National Security Engineering</title>
-        <meta 
-          name="description" 
-          content="Enterprise-grade security integration in Canada. Specialized in Avigilon, Genetec, and ICT for UHN, CAMH, and City of Hamilton projects." 
-        />
+        <title>Shrestha Integrated Systems | Security & IT Networking</title>
+        <meta name="description" content="Professional installation of commercial CCTV, structured cabling, access control, and automatic doors across the Niagara region." />
       </Helmet>
 
-      <div className="min-h-screen bg-[#050608] text-white font-sans selection:bg-red-600 selection:text-white">
+      <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-yellow-400 selection:text-black">
+        {/* Note: You may need to adjust your Navbar component to look good on a white background if it was hardcoded for dark mode */}
         <Navbar />
         
         <main>
           <Hero />
 
-          {/* --- MISSION STATEMENT --- */}
-          <section className="py-32 px-6 max-w-7xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl md:text-7xl font-black mb-12 leading-none tracking-tighter uppercase italic">
-              Mission-critical systems for the infrastructure that keeps <br/>
-              <span className="text-red-600 drop-shadow-[0_0_25px_rgba(220,38,38,0.8)] animate-pulse inline-block mt-4">Canada Running</span>
+          <AuditBanner />
+
+          {/* --- POLITE & LIGHT MISSION STATEMENT --- */}
+          <section className="py-24 px-6 max-w-5xl mx-auto text-center relative z-10">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight uppercase text-gray-900">
+              Reliable technical integration for the systems that keep your facility running smoothly.
             </h2>
-            <div className="flex justify-center">
-              <div className="h-2 w-40 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
+            <div className="flex justify-center mb-8">
+              <div className="h-1 w-24 bg-yellow-400 rounded-full"></div>
             </div>
+            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium">
+              We specialize in modernizing legacy security hardware and deploying clean, high-uptime IT networking. 
+              Direct access to a lead technician ensures your project is completed with precision, on time, and without the corporate runaround.
+            </p>
           </section>
 
           <TechStack />
           
           <AuthoritySection />
 
-          {/* --- TECHNICAL EXPERTISE SECTION --- */}
-          <section className="py-32 px-6 bg-[#0a0c10] border-t border-white/5 relative overflow-hidden">
-             {/* Background Grid Animation */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black,transparent)] pointer-events-none"></div>
-
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center relative z-10">
+          {/* --- TECHNICAL EXPERTISE SECTION (Scrubbed 'Engineering') --- */}
+          <section className="py-24 px-6 bg-gray-50 border-t border-gray-200 relative">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-[10px] font-black tracking-[0.2em] text-yellow-400 uppercase border border-yellow-400/30 rounded-full">
-                  <Activity size={12} className="animate-pulse"/> Vetted Technical Lead
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-[10px] font-black tracking-[0.2em] text-yellow-700 bg-yellow-100 uppercase rounded-full border border-yellow-200">
+                  <Activity size={12} /> Vetted Technical Lead
                 </div>
-                <h2 className="text-5xl md:text-6xl font-black mb-8 italic uppercase tracking-tighter leading-none">
-                  Full-Fledged <br/><span className="text-yellow-400">Engineering</span>
+                <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight leading-none text-gray-900">
+                  Expert <br/><span className="text-yellow-600">Integration</span>
                 </h2>
-                <p className="text-gray-400 text-lg mb-10 leading-relaxed border-l-4 border-gray-700 pl-6">
-                  From nurse call systems in <strong className="text-white">Cogir</strong> and <strong className="text-white">Chartwell</strong> facilities to enterprise-level data networking for 
-                  <strong className="text-white"> Food Basics</strong> and <strong className="text-white">Shoppers</strong>, we deliver engineered solutions that meet strict institutional standards.
+                <p className="text-gray-600 text-lg mb-8 leading-relaxed border-l-4 border-yellow-400 pl-6">
+                  From nurse call systems in regional care facilities to enterprise-level data networking for 
+                  national retailers, we deliver technical solutions that meet strict institutional standards. 
+                  Every cable is traced, every panel is organized, and every system is tested.
                 </p>
-                <Link to="/services" className="group inline-flex items-center gap-4 text-xl font-black uppercase italic tracking-widest hover:text-yellow-400 transition-colors">
+                <Link to="/services" className="group inline-flex items-center gap-3 text-lg font-black uppercase tracking-widest text-gray-900 hover:text-yellow-600 transition-colors">
                   Explore Capabilities 
-                  <span className="bg-yellow-400 text-black p-1 group-hover:rotate-45 transition-transform duration-300">
-                    <ChevronRight size={20} />
-                  </span>
+                  <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
               
@@ -128,13 +155,13 @@ const Home = () => {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { label: "Access Control", icon: <Zap /> },
-                  { label: "CCTV / VMS", icon: <Camera /> }, // Replaced generic with Camera (imported below)
+                  { label: "CCTV / VMS", icon: <Camera /> },
                   { label: "IT Networking", icon: <Server /> },
                   { label: "Life Safety", icon: <Cpu /> }
                 ].map((item, i) => (
-                  <div key={i} className={`bg-[#050608] p-8 border border-white/10 hover:border-yellow-400 transition-all duration-300 group flex flex-col items-center justify-center text-center aspect-square ${i % 2 !== 0 ? 'md:translate-y-8' : ''}`}>
-                    <div className="text-gray-600 mb-4 group-hover:text-yellow-400 group-hover:scale-125 transition-all duration-300">{item.icon}</div>
-                    <span className="font-black uppercase italic tracking-tighter text-xl">{item.label}</span>
+                  <div key={i} className={`bg-white p-8 border border-gray-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300 group flex flex-col items-center justify-center text-center aspect-square rounded-sm ${i % 2 !== 0 ? 'md:translate-y-6' : ''}`}>
+                    <div className="text-gray-400 mb-4 group-hover:text-yellow-600 group-hover:scale-110 transition-all duration-300">{item.icon}</div>
+                    <span className="font-black uppercase tracking-tight text-gray-900">{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -143,14 +170,14 @@ const Home = () => {
 
           {/* --- FINAL CTA --- */}
           <section className="py-24 bg-yellow-400 border-t-8 border-black">
-            <div className="max-w-7xl mx-auto px-6 text-center">
-               <h2 className="text-5xl md:text-8xl font-black text-black uppercase italic tracking-tighter mb-8">
-                 Ready to <span className="text-white drop-shadow-[0_4px_0_rgba(0,0,0,1)]">Deploy?</span>
+            <div className="max-w-4xl mx-auto px-6 text-center">
+               <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tight mb-6">
+                 Ready to get started?
                </h2>
-               <p className="text-black font-bold tracking-[0.2em] mb-12 text-lg">
+               <p className="text-black/80 font-bold tracking-[0.2em] mb-10 text-sm uppercase">
                  HAMILTON • TORONTO • NIAGARA • BURLINGTON
                </p>
-               <Link to="/Quote" className="inline-block bg-black text-white px-16 py-6 font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all hover:scale-105 shadow-2xl">
+               <Link to="/Quote" className="inline-block bg-black text-white px-12 py-5 font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all shadow-xl rounded-sm">
                  Initialize Request
                </Link>
             </div>
@@ -162,8 +189,5 @@ const Home = () => {
     </>
   );
 };
-
-// Quick fix for the Camera icon used in the grid
-import { Camera } from "lucide-react"; 
 
 export default Home;

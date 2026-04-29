@@ -18,6 +18,7 @@ export default function Navbar() {
 
   // Close mobile menu when route changes
   useEffect(() => {
+    
     setNav(false);
   }, [location]);
 
@@ -101,7 +102,7 @@ export default function Navbar() {
             className="relative group overflow-hidden bg-yellow-400 hover:bg-white text-black text-xs font-black uppercase tracking-[0.2em] px-8 py-4 rounded-sm transition-all flex items-center gap-3"
           >
              <span className="relative z-10 flex items-center gap-2">
-               Deploy System <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform"/>
+               Connect Now <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform"/>
              </span>
              {/* Button Hover Sweep Effect */}
              <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></div>

@@ -1,10 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+
 import { 
-  LockIcon, KeyIcon, Camera, ShieldCheck, 
-  Network, Hospital, Building2, Server, 
-  ShieldAlert, HardHat, Cpu, Zap, ChevronRight,
-  Globe, Building, Activity 
+  Camera, ShieldCheck, Network, Hospital, 
+  Building2, ShieldAlert, Cpu, 
+  ChevronRight, Globe, Building, Activity, Clock 
 } from "lucide-react";
 
 // Local Asset Imports
@@ -15,127 +16,139 @@ import networkingImg from "../assets/Networking.jpg";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+// Prominent 15-Minute Assessment Component
+const AuditFeature = () => (
+  <div className="max-w-7xl mx-auto px-6 mb-24">
+    <div className="bg-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-gray-200 shadow-xl rounded-sm">
+      <div className="flex items-start gap-6">
+        <div className="p-4 bg-yellow-400 text-gray-900 shrink-0 rounded-full">
+          <Clock size={36} />
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl font-black uppercase text-gray-900 mb-2">Free 15-Minute System Assessment</h2>
+          <p className="text-gray-600 font-medium max-w-xl text-sm md:text-base leading-relaxed">
+            Not sure if your current infrastructure supports modern high-definition upgrades? 
+            We offer a quick, no-obligation site audit to identify legacy bottlenecks and security vulnerabilities.
+          </p>
+        </div>
+      </div>
+      <Link to="/Quote" className="w-full md:w-auto text-center bg-gray-900 text-white px-10 py-5 font-black uppercase tracking-widest hover:bg-yellow-400 hover:text-gray-900 transition-all whitespace-nowrap rounded-sm">
+        Schedule Audit
+      </Link>
+    </div>
+  </div>
+);
+
 export default function Services() {
   return (
     <>
       <Helmet>
-        <title>National Systems Integration | Shrestha Integrated Systems</title>
+        <title>Commercial Systems Integration | Shrestha Integrated Systems</title>
+        <meta name="description" content="Technical deployment of commercial CCTV, access control, and IT networking. Specializing in healthcare, retail, and institutional infrastructure." />
+        <link rel="canonical" href="https://integratedsystems.ca/services" />
       </Helmet>
 
-      <div className="relative min-h-screen bg-[#050608] text-white overflow-hidden font-sans">
-        <NavBar />
-        <FloatingIcons />
-
-        <main className="relative z-10 pt-32 px-6 pb-24">
-          
-          {/* --- HERO SECTION --- */}
-          <section className="max-w-5xl mx-auto text-center mb-32 animate-fadeIn">
-            <div className="inline-flex items-center gap-3 px-5 py-2 mb-8 text-xs font-black tracking-[0.3em] text-green-400 uppercase bg-green-500/10 border border-green-500/30 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </span>
-              Systems Online
-            </div>
-
-            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter uppercase italic leading-none">
-              Critical <span className="text-yellow-400">Systems</span> <br/> Engineering
+      <div className="relative min-h-screen bg-gray-50 font-sans">
+        
+        {/* --- DARK HEADER (Fixes Invisible Navbar) --- */}
+        <div className="bg-[#050608] relative pb-32">
+          <NavBar />
+          <div className="relative z-10 pt-32 px-6 max-w-5xl mx-auto text-center animate-fadeIn">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight uppercase leading-none text-white">
+              Commercial <br/><span className="text-yellow-400">Systems</span> Integration
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium">
-              <span className="burn-text inline-block mr-2">Leading</span> integration for <span className="text-white">Canada's</span> most demanding environments. 
-              Coast-to-coast infrastructure protection.
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">
+              Precision deployment of security and networking solutions for commercial, 
+              institutional, and healthcare properties across Ontario.
             </p>
-          </section>
+          </div>
+        </div>
+
+        <main className="relative z-10 pb-24 text-gray-900">
+          
+          {/* --- THE AUDIT CTA (Pulled up to overlap dark/light transition) --- */}
+          <div className="-mt-16 relative z-20">
+            <AuditFeature />
+          </div>
 
           {/* --- WORK SITE SHOWCASE --- */}
-          <section className="max-w-7xl mx-auto mb-40">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <section className="max-w-7xl mx-auto mb-32 px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { img: nurseCallImg, label: "Healthcare", title: "Nurse Call Systems" },
-                { img: networkingImg, label: "Infrastructure", title: "Enterprise Networking", shift: true },
-                { img: acsImg, label: "Institutional", title: "Access Integration" }
+                { img: nurseCallImg, label: "Healthcare", title: "Nurse Call Systems", alt: "Nurse call system deployment for regional healthcare facilities" },
+                { img: networkingImg, label: "Infrastructure", title: "IT Networking", shift: true, alt: "Structured cabling and IT infrastructure installation" },
+                { img: acsImg, label: "Commercial", title: "Access Integration", alt: "Professional access control and intercom installation" }
               ].map((item, i) => (
-                <div key={i} className={`relative group overflow-hidden rounded-sm border border-white/10 aspect-[4/5] hover:border-yellow-400/50 transition-all duration-500 ${item.shift ? 'md:translate-y-12' : ''}`}>
-                  <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-80" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050608] via-transparent to-transparent" />
+                <div key={i} className={`relative group overflow-hidden bg-white border border-gray-200 shadow-md aspect-[4/5] rounded-sm ${item.shift ? 'md:translate-y-12' : ''}`}>
+                  <img src={item.img} alt={item.alt} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
                   <div className="absolute bottom-8 left-8">
-                    <p className="text-yellow-400 font-black text-xs uppercase tracking-widest mb-2">{item.label}</p>
-                    <h3 className="text-2xl font-black italic uppercase tracking-tighter">{item.title}</h3>
+                    <p className="text-yellow-400 font-bold text-xs uppercase tracking-widest mb-2">{item.label}</p>
+                    <h3 className="text-2xl font-black uppercase tracking-tight text-white">{item.title}</h3>
                   </div>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* --- COMPANY SERVICES --- */}
-          <section className="max-w-7xl mx-auto mb-40">
-            <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-16 border-l-8 border-yellow-400 pl-8">
-              Company <span className="text-yellow-400">Services</span>
-            </h2>
+          {/* --- CORE CAPABILITIES --- */}
+          <section className="max-w-7xl mx-auto mb-32 px-6">
+            <div className="flex items-center gap-4 mb-16">
+              <div className="h-1 w-12 bg-yellow-400 rounded-full"></div>
+              <h2 className="text-4xl font-black uppercase tracking-tight text-gray-900">Core Capabilities</h2>
+            </div>
             
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: <Camera size={40}/>, title: "Surveillance Intelligence", desc: "Full-scale deployment of Avigilon & Genetec VMS. We integrate AI-driven behavior analytics for high-traffic facilities." },
-                { icon: <Cpu size={40}/>, title: "Access Control Matrix", desc: "Mercury & ICT GX/WX certified integration. Multi-factor HID/iStar authentication for government-cleared sites." },
-                { icon: <ShieldAlert size={40}/>, title: "Intrusion Detection", desc: "Institutional-grade monitoring arrays using DSC and Bosch. Security diagnostics and system hardening." },
-                { icon: <Network size={40}/>, title: "Networking & Fiber", desc: "High-uptime Cisco, Aruba, and Juniper networking. Specialized rack builds and segmented Cat6/Fiber infrastructure." }
+                { icon: <Camera size={36}/>, title: "Video Surveillance", desc: "Installation and management of high-definition VMS platforms. We specialize in Avigilon and Genetec deployments for large-scale facilities." },
+                { icon: <Cpu size={36}/>, title: "Access & Intercom", desc: "Mercury and ICT certified integration. We manage hardware deployment for multi-tenant buildings and commercial offices." },
+                { icon: <ShieldAlert size={36}/>, title: "Intrusion Systems", desc: "Deployment of institutional-grade monitoring arrays and security hardening for warehouses and retail spaces." },
+                { icon: <Network size={36}/>, title: "Structured Cabling", desc: "Certified Cat6, Cat6A, and Fiber-optic infrastructure. We provide clean, labeled, and tested rack builds." }
               ].map((cap, i) => (
-                <div key={i} className="group relative bg-[#0a0c10] border border-white/5 p-12 hover:bg-yellow-400 transition-all duration-500 cursor-default">
-                  <div className="relative z-10">
-                    <div className="text-yellow-400 group-hover:text-black mb-8 transition-colors">{cap.icon}</div>
-                    <h3 className="text-3xl font-black uppercase italic group-hover:text-black transition-colors mb-4 leading-none">{cap.title}</h3>
-                    <p className="text-gray-500 group-hover:text-black font-bold text-lg leading-relaxed transition-colors">{cap.desc}</p>
-                  </div>
+                <div key={i} className="p-10 bg-white border border-gray-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300 rounded-sm">
+                  <div className="text-yellow-600 mb-6">{cap.icon}</div>
+                  <h3 className="text-2xl font-black uppercase mb-4 text-gray-900">{cap.title}</h3>
+                  <p className="text-gray-600 font-medium leading-relaxed">{cap.desc}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* --- INDUSTRIES SECTION --- */}
-          <section className="max-w-7xl mx-auto mb-40 px-4">
+          {/* --- SECTOR SPECIALIZATIONS --- */}
+          <section className="max-w-7xl mx-auto mb-32 px-6">
             <div className="text-center mb-16">
-               <h2 className="text-4xl font-black uppercase tracking-tighter italic">Industries & <span className="text-yellow-400">Specializations</span></h2>
+               <h2 className="text-4xl font-black uppercase tracking-tight text-gray-900">Sector Specializations</h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { area: "Healthcare", sites: "UHN, CAMH, Specialized Clinics", icon: <Hospital size={32}/> },
-                { area: "Public Works", sites: "City Infrastructure & Municipal Sites", icon: <Building2 size={32}/> },
-                { area: "Luxury Hospitality", sites: "Intercontinental & Luxury Hotels", icon: <Globe size={32}/> },
-                { area: "Enterprise Retail", sites: "Food Basics, Shoppers, National Warehousing", icon: <Building size={32}/> },
-                { area: "Life Safety", sites: "National LTC & Retirement Communities", icon: <ShieldCheck size={32}/> },
-                { area: "Physical Fitness", sites: "National Gym Chains & Leisure Centres", icon: <Activity size={32}/> }
+                { area: "Healthcare", sites: "Regional Hospitals & Clinics", icon: <Hospital size={28}/> },
+                { area: "Institutional", sites: "Civic & Municipal Infrastructure", icon: <Building2 size={28}/> },
+                { area: "Hospitality", sites: "Hotels & Resort Properties", icon: <Globe size={28}/> },
+                { area: "Retail", sites: "National Chains & Warehousing", icon: <Building size={28}/> },
+                { area: "Life Safety", sites: "Long-Term Care Communities", icon: <ShieldCheck size={28}/> },
+                { area: "Commercial", sites: "Fitness & Leisure Facilities", icon: <Activity size={28}/> }
               ].map((item, i) => (
-                <div key={i} className="p-10 bg-[#0a0c10] border-b-4 border-white/5 hover:border-yellow-400 hover:-translate-y-2 transition-all duration-500 group">
-                  <div className="text-yellow-400 mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-                  <h3 className="text-2xl font-black uppercase italic mb-3">{item.area}</h3>
-                  <p className="text-gray-500 font-bold uppercase tracking-tighter text-sm">{item.sites}</p>
+                <div key={i} className="p-8 bg-white border border-gray-200 text-center flex flex-col items-center hover:shadow-md transition-shadow rounded-sm">
+                  <div className="text-gray-400 mb-4">{item.icon}</div>
+                  <h3 className="text-lg font-black uppercase mb-1 text-gray-900">{item.area}</h3>
+                  <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">{item.sites}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* --- FINAL CTA: SHINY WAVING CANADA FLAG --- */}
-          <section className="text-center mt-32 relative overflow-hidden bg-gradient-to-t from-red-950 via-black to-black py-40 rounded-sm border-t border-red-600/20 shadow-2xl">
-            {/* Waving Canada Flag Background */}
-            <div className="absolute inset-0 opacity-40 pointer-events-none">
-               <img 
-                 src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" 
-                 alt="Canada Flag Background" 
-                 className="w-full h-full object-cover animate-flagWave"
-               />
-               <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
-            </div>
-
-            <div className="relative z-10 px-6">
-                <h3 className="text-5xl md:text-9xl font-black text-white mb-8 italic uppercase tracking-tighter">
-                  Keeping <span className="text-red-600 drop-shadow-[0_0_20px_rgba(220,38,38,1)]">Canada</span> Running
+          {/* --- FINAL CTA --- */}
+          <section className="text-center bg-yellow-400 py-24 shadow-inner">
+            <div className="relative z-10 px-6 max-w-4xl mx-auto">
+                <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 uppercase tracking-tight">
+                  Ready to Discuss Your Infrastructure?
                 </h3>
-                <p className="max-w-2xl mx-auto text-gray-300 font-black uppercase tracking-[0.4em] mb-12">
-                   Strategic Technical Integration • Coast-to-Coast
+                <p className="text-gray-900/80 font-black uppercase tracking-[0.2em] mb-12 text-sm">
+                   Professional Integration • Serving Ontario
                 </p>
-                <a href="/Quote" className="inline-flex items-center gap-4 bg-white text-black font-black uppercase tracking-[0.3em] px-16 py-6 hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-                  Contact Technical Lead <ChevronRight />
-                </a>
+                <Link to="/Quote" className="inline-flex items-center gap-4 bg-gray-900 text-white font-black uppercase tracking-[0.2em] px-12 py-5 hover:bg-white hover:text-gray-900 transition-all shadow-xl rounded-sm">
+                  Book Your Assessment <ChevronRight />
+                </Link>
             </div>
           </section>
 
@@ -143,58 +156,10 @@ export default function Services() {
         <Footer />
       </div>
 
-      {/* --- CUSTOM CSS ANIMATIONS --- */}
       <style>{`
-        .burn-text {
-          font-weight: 900;
-          color: #facc15;
-          text-transform: uppercase;
-          font-style: italic;
-          animation: flicker 0.1s infinite alternate, shake 0.4s infinite;
-          text-shadow: 
-            0 0 5px #fff, 
-            0 -2px 10px #facc15, 
-            0 -5px 20px #f59e0b, 
-            0 -12px 30px #dc2626;
-        }
-
-        @keyframes flicker {
-          0% { opacity: 0.9; text-shadow: 0 0 10px #facc15, 0 -5px 20px #f59e0b, 0 -10px 30px #dc2626; }
-          100% { opacity: 1; text-shadow: 0 0 15px #facc15, 0 -8px 25px #f59e0b, 0 -18px 45px #dc2626; }
-        }
-
-        @keyframes shake {
-          0% { transform: translate(1px, 1px) rotate(0deg); }
-          25% { transform: translate(-1px, -1px) rotate(-0.3deg); }
-          50% { transform: translate(1px, -1px) rotate(0.3deg); }
-          100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
-        @keyframes flagWave {
-          0% { transform: scale(1.15) translateX(0); filter: brightness(0.8) contrast(1.2); }
-          50% { transform: scale(1.2) translateX(-15px); filter: brightness(1.1) contrast(1.4); }
-          100% { transform: scale(1.15) translateX(0); filter: brightness(0.8) contrast(1.2); }
-        }
-        .animate-flagWave { animation: flagWave 6s ease-in-out infinite; }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 1.5s ease-out forwards; }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
       `}</style>
     </>
-  );
-}
-
-function FloatingIcons() {
-  return (
-    <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
-      <style>{`
-        @keyframes floatUp { to { transform: translateY(-160vh) rotate(360deg); } }
-      `}</style>
-      {[...Array(10)].map((_, i) => (
-        <div key={i} className="absolute bottom-[-150px]" style={{ left: `${Math.random() * 100}%`, animation: `floatUp ${40 + Math.random() * 30}s linear infinite` }}>
-          <ShieldCheck size={60} />
-        </div>
-      ))}
-    </div>
   );
 }
