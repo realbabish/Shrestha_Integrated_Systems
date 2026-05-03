@@ -6,7 +6,9 @@ import Services from './pages/Services';
 import Quote from './pages/Quote';
 import Contact from './pages/Contact';
 import LoadingAnimation from './components/LoadingAnimation';
-import ScrollToTop from './components/ScrollToTop'; // <--- 1. IMPORT THIS
+import ScrollToTop from './components/ScrollToTop';
+// 1. Import your new widget
+import ChatWidget from './components/shrestha-chat-widget/src/ChatWidget'; 
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -19,8 +21,8 @@ function App() {
   if (loading) return <LoadingAnimation />;
 
   return (
-    <> {/* <--- 2. ADD FRAGMENT START */}
-      <ScrollToTop /> {/* <--- 3. PLACE COMPONENT HERE */}
+    <>
+      <ScrollToTop />
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,6 +31,9 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Quote" element={<Quote />} />
       </Routes>
+
+      {/* 2. Drop the widget here so it floats on all pages */}
+      <ChatWidget /> 
     </>
   );
 }
