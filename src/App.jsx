@@ -8,7 +8,8 @@ import Contact from './pages/Contact';
 import LoadingAnimation from './components/LoadingAnimation';
 import ScrollToTop from './components/ScrollToTop';
 
-
+// ADD THIS LINE (Double-check if it's "Shrestha" or "shrestha")
+import ChatWidget from "./components/Shrestha-chat-widget/src/ChatWidget";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ function App() {
         <Route path="/Quote" element={<Quote />} />
       </Routes>
 
-      {/* 2. Drop the widget here so it floats on all pages */}
+      {/* This works now because the import above exists */}
       <ChatWidget /> 
     </>
   );
