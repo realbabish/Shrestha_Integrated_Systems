@@ -9,7 +9,7 @@ import LoadingAnimation from './components/LoadingAnimation';
 import ScrollToTop from './components/ScrollToTop';
 
 // ADD THIS LINE (Double-check if it's "Shrestha" or "shrestha")
-import ChatWidget from "./components/Shrestha-chat-widget/src/ChatWidget";
+import ChatWidget from "./components/shrestha-chat-widget/src/Chatwidget.jsx";
 
 function App() {
   const [loading, setLoading] = useState(true);
