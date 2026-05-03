@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ChevronRight, Zap, Bot } from "lucide-react"; // Added Bot icon
+import { Menu, X, ChevronRight, Zap, Bot, ShieldCheck, Network } from "lucide-react"; // Added ShieldCheck & Network
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
@@ -18,6 +18,13 @@ export default function Navbar() {
   useEffect(() => {
     setNav(false);
   }, [location]);
+
+  // Helper function to handle custom routing
+  const getPath = (item) => {
+    if (item === "Home") return "/";
+    if (item === "Our AI") return "/agent";
+    return `/${item.toLowerCase()}`;
+  };
 
   return (
     <nav 
@@ -62,24 +69,28 @@ export default function Navbar() {
         {/* --- DESKTOP LINKS --- */}
         <div className="hidden lg:flex items-center gap-10">
           <ul className="flex space-x-8 text-sm font-black tracking-[0.15em] uppercase relative z-10">
-            {/* Added "Our AI" to the list */}
-            {["Home", "Services", "About", "Our AI"].map((item) => (
+            {/* Added Security and Networking to the list */}
+            {["Home", "Security", "Networking", "Our AI", "About"].map((item) => (
               <li key={item}>
                 <NavLink
-                  to={item === "Home" ? "/" : item === "Our AI" ? "/agent" : `/${item.toLowerCase()}`}
+                  to={getPath(item)}
                   className={({ isActive }) =>
-                    `relative py-2 transition-colors duration-300 hover:text-yellow-400 ${
+                    `relative py-2 transition-colors duration-300 hover:text-yellow-400 group flex items-center gap-2 ${
                       isActive ? "text-yellow-400" : "text-gray-300"
                     }`
                   }
                 >
                   {({ isActive }) => (
-                    <span className="flex items-center gap-2">
+                    <>
                       {isActive && <Zap size={12} className="text-yellow-400 animate-pulse" />}
-                      {/* Special icon for AI page */}
+                      
+                      {/* Specific Icons for the 3 main pillars */}
+                      {item === "Security" && <ShieldCheck size={14} className={isActive ? "text-yellow-400" : "text-gray-500 group-hover:text-yellow-400"} />}
+                      {item === "Networking" && <Network size={14} className={isActive ? "text-yellow-400" : "text-gray-500 group-hover:text-yellow-400"} />}
                       {item === "Our AI" && <Bot size={14} className={isActive ? "text-yellow-400" : "text-gray-500 group-hover:text-yellow-400"} />}
+                      
                       {item}
-                    </span>
+                    </>
                   )}
                 </NavLink>
               </li>
@@ -109,11 +120,11 @@ export default function Navbar() {
           nav ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
-        {/* Added Our AI to mobile menu */}
-        {["Home", "Services", "About", "Our AI", "Quote"].map((item, index) => (
+        {/* Added Security and Networking to mobile menu */}
+        {["Home", "Security", "Networking", "Our AI", "About", "Quote"].map((item, index) => (
           <NavLink
             key={item}
-            to={item === "Home" ? "/" : item === "Our AI" ? "/agent" : `/${item.toLowerCase()}`}
+            to={getPath(item)}
             onClick={() => setNav(false)}
             style={{ transitionDelay: `${index * 100}ms` }}
             className={({ isActive }) => 
