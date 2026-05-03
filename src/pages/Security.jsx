@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 
 // NOTE: Ensure these images exist in your assets folder. 
 // If your path is different, adjust the '../assets/...' part below.
-import nursecallImg from '../assets/nursecall.png';
+import nursecallImg from '../assets/Nursecall.png';
 import alarmImg from '../assets/alarm.jpg';
 
 // ==========================================
