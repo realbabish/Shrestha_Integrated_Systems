@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 // 1. Import your new widget
 import ChatWidget from './components/shrestha-chat-widget/src/ChatWidget'; 
 
+
 function App() {
   const [loading, setLoading] = useState(true);
 
