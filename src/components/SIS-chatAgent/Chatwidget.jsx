@@ -30,7 +30,7 @@ function App() {
     setIsTyping(true);
 
     try {
-      const response = await axios.post('http://3.96.62.62:8000/chat', {
+      const response = await axios.post('https://ai-api.integratedsystems.ca:8000/chat', {
         text: input,
         session_id: sessionId
       });

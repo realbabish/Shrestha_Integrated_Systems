@@ -7,7 +7,7 @@ import Quote from './pages/Quote';
 import Contact from './pages/Contact';
 import LoadingAnimation from './components/LoadingAnimation';
 import ScrollToTop from './components/ScrollToTop';
-
+import Agent from './pages/Agent'
 // ADD THIS LINE (Double-check if it's "Shrestha" or "shrestha")
 import ChatWidget from "./components/SIS-chatAgent/Chatwidget.jsx";
 
@@ -31,6 +31,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Quote" element={<Quote />} />
+        <Route path="/agent" element={<Agent />} />
       </Routes>
 
       {/* This works now because the import above exists */}
