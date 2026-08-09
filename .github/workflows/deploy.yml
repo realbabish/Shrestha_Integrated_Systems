@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: ⚙️ Use Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
-        node-version: '20'
+        node-version: '24'
 
     - name: 📦 Install Dependencies
       run: npm install
@@ -25,7 +25,7 @@ jobs:
 
     - name: 📂 Sync files to Ionos via SFTP
       # We are switching to a Robot that speaks SFTP (Port 22)
-      uses: wangyucode/sftp-upload-action@v2.0.2
+      uses: wangyucode/sftp-upload-action@v2.0.3
       with:
         host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
