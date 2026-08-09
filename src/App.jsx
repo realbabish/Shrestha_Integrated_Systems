@@ -13,7 +13,6 @@ const About = lazy(() => import('./pages/About'));
 const Security = lazy(() => import('./pages/Security'));
 const Quote = lazy(() => import('./pages/Quote'));
 const Contact = lazy(() => import('./pages/Contact'));
-const Agent = lazy(() => import('./pages/Agent'));
 const Networking = lazy(() => import('./pages/Networking'));
 
 function App() {
@@ -40,7 +39,6 @@ function App() {
           <Route path="/Security" element={<Security />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Quote" element={<Quote />} />
-          <Route path="/agent" element={<Agent />} />
           <Route path="/Networking" element={<Networking />} />
         </Routes>
       </Suspense>

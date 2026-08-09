@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Ubiquiti icon">
+  <rect width="256" height="256" rx="48" fill="#0F172A"/>
+  <path d="M128 40c-48.6 0-88 39.4-88 88s39.4 88 88 88 88-39.4 88-88S176.6 40 128 40Zm0 32c31.1 0 56 24.9 56 56s-24.9 56-56 56-56-24.9-56-56 24.9-56 56-56Z" fill="#FACC15"/>
+  <path d="M96 112h20c10.5 0 19 8.5 19 19v4c0 10.5-8.5 19-19 19H96v-42Zm64 0h20v42h-20v-42Z" fill="#FFFFFF"/>
+</svg>

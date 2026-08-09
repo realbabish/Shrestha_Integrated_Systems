@@ -293,6 +293,10 @@ export default function Networking() {
     <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden w-full">
       <Navbar />
 
+      <div className="sticky top-0 z-40 w-full border-b border-zinc-800 bg-[#050608]/95 backdrop-blur-sm px-4 py-3 text-center text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-blue-400">
+        Executed by CCNA-Certified Network Technicians & Experienced Fiber Splicers
+      </div>
+
       {/* --- HERO SECTION --- */}
       <section className="bg-[#050608] text-white pt-32 pb-24 md:pt-48 md:pb-32 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.1)_0%,transparent_60%)]" />
@@ -307,8 +311,11 @@ export default function Networking() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-600 italic">Connectivity</span>
             </h1>
             
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-400/10 px-3 py-1.5 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-6 md:mb-8">
+              <Network size={12} className="md:w-3.5 md:h-3.5" /> OTDR testing • Fluke-certified cabling • CCNA-level engineering
+            </div>
             <p className="text-zinc-400 text-sm sm:text-base md:text-xl max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed mb-8 md:mb-10 px-2 md:px-0">
-              Technical deployment of enterprise-grade networks. From core Layer 3 switching to Ubiquiti high-uptime wireless bridges, we ensure your data moves at the speed of business.
+              Field-first telecommunications deployment for commercial and industrial sites. We lead with fiber optic fusion splicing and structured Cat6/Cat6a cabling, then layer in switching, routing, wireless, and network hardening services for reliable business operations.
             </p>
             <Link to="/Quote" className="inline-flex items-center justify-center gap-3 md:gap-4 w-full sm:w-auto bg-blue-600 text-white px-8 md:px-10 py-4 font-black uppercase tracking-widest text-[10px] md:text-xs hover:bg-white hover:text-black transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] rounded-sm">
               Initialize Audit <ChevronRight size={16}/>
@@ -320,23 +327,21 @@ export default function Networking() {
       </section>
 
       <main className="py-20 md:py-32 space-y-24 md:space-y-40 w-full">
-        
-        {/* --- SECTION 1: CORE INFRASTRUCTURE --- */}
         <section className="px-4 sm:px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-4 mb-6 md:mb-8">
-              <div className="p-3 md:p-4 bg-blue-600 text-white rounded-sm shadow-xl"><Server size={28} className="md:w-8 md:h-8" /></div>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-zinc-900 leading-none">Infrastructure <br/>Engineering</h2>
+              <div className="p-3 md:p-4 bg-blue-600 text-white rounded-sm shadow-xl"><Network size={28} className="md:w-8 md:h-8" /></div>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-zinc-900 leading-none">Precision Fiber <br/>Optic Fusion Splicing</h2>
             </div>
             <p className="text-zinc-600 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 font-medium border-l-4 border-blue-600 pl-4 md:pl-6">
-              Certified deployment for **Cisco CCNA-certified** architectures. We design high-performance switching and routing environments, focusing on Layer 2/3 VLAN segmentation, Spanning Tree management, and low-latency throughput for commercial facilities.
+              We execute single-mode and multi-mode core alignment splicing for backbone upgrades, emergency cut-cable repairs, and long-haul distribution runs with optical loss budget analysis and field verification at every endpoint.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
               {[
-                { title: "Layer 2/3 Switching", desc: "VLAN Trunking & Optimization" },
-                { title: "Managed Routing", desc: "Dynamic Network Pathing" },
-                { title: "SD-WAN Pipelines", desc: "Secure multi-site linking" },
-                { title: "Network Redundancy", desc: "High-uptime configuration" }
+                { title: "Single-Mode & Multi-Mode", desc: "Core alignment splicing" },
+                { title: "OTDR Testing", desc: "Trace and loss validation" },
+                { title: "Optical Budget Analysis", desc: "Link performance planning" },
+                { title: "Emergency Repairs", desc: "Rapid restoration support" }
               ].map((item, i) => (
                 <div key={i} className="bg-zinc-50 p-4 md:p-5 border border-zinc-200 rounded-sm shadow-sm">
                   <div className="text-blue-600 font-black uppercase text-[9px] md:text-[10px] tracking-widest mb-1 md:mb-2">{item.title}</div>
@@ -350,7 +355,34 @@ export default function Networking() {
           </div>
         </section>
 
-        {/* --- SECTION 2: WIRELESS & PTP --- */}
+        <section className="px-4 sm:px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="order-2 lg:order-1">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
+              <div className="p-3 md:p-4 bg-blue-600 text-white rounded-sm shadow-xl"><Server size={28} className="md:w-8 md:h-8" /></div>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-zinc-900 leading-none">Structured Cabling <br/>& Rack Overhaul</h2>
+            </div>
+            <p className="text-zinc-600 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 font-medium border-l-4 border-blue-600 pl-4 md:pl-6">
+              We install Cat6, Cat6a, and Cat7 certified runs with Fluke line certification, then perform server rack cable tracing, re-labeling, and MDF/IDF patch panel migrations for clean, documented infrastructure moves.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              {[
+                { title: "Cat6 / Cat6a / Cat7", desc: "Certified commercial runs" },
+                { title: "Fluke Certification", desc: "Performance verification" },
+                { title: "Rack Rebuilds", desc: "Tracing and re-labeling" },
+                { title: "MDF / IDF Migrations", desc: "Patch panel transitions" }
+              ].map((item, i) => (
+                <div key={i} className="bg-zinc-50 p-4 md:p-5 border border-zinc-200 rounded-sm shadow-sm">
+                  <div className="text-blue-600 font-black uppercase text-[9px] md:text-[10px] tracking-widest mb-1 md:mb-2">{item.title}</div>
+                  <div className="text-zinc-600 text-[11px] md:text-xs font-bold leading-relaxed">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <HeroVisualSequence />
+          </div>
+        </section>
+
         <section className="py-20 md:py-32 px-4 sm:px-6 bg-zinc-50 border-y border-zinc-200">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <div className="order-2 lg:order-1">
@@ -360,13 +392,13 @@ export default function Networking() {
             <div className="order-1 lg:order-2">
               <div className="flex items-center gap-4 mb-6 md:mb-8">
                 <div className="p-3 md:p-4 bg-black text-blue-400 rounded-sm shadow-xl"><Globe size={28} className="md:w-8 md:h-8" /></div>
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-zinc-900 leading-none">Enterprise <br/>Wireless</h2>
+                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-zinc-900 leading-none">Industrial Wireless <br/>Infrastructure</h2>
               </div>
               <p className="text-zinc-600 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 font-medium border-l-4 border-black pl-4 md:pl-6">
-                From senior living facilities to industrial logistics terminals, we specialize in high-density mesh deployments using **Aruba** and **Ubiquiti UniFi** platforms. Every solution ensures seamless roaming and secure **Point-to-Point (PTP)** wireless bridges for campus environments.
+                We deploy long-range Point-to-Point (P2P) wireless bridges and high-density warehouse Wi-Fi for campuses, logistics facilities, and multi-building sites where cable runs are impractical and uptime is critical.
               </p>
               <div className="flex flex-wrap gap-3 md:gap-6">
-                {["Ubiquiti AirMax", "Aruba InstantOn", "Cisco Meraki", "PTP Bridges"].map((brand, i) => (
+                {["P2P Bridges", "Warehouse Wi-Fi", "Long-Range Links", "Mission-Critical Uptime"].map((brand, i) => (
                   <span key={i} className="px-3 md:px-4 py-2 bg-white border border-zinc-200 text-[10px] md:text-xs font-black text-zinc-800 uppercase tracking-widest rounded-sm shadow-sm">
                     {brand}
                   </span>

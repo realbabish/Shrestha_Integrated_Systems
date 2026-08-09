@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Genetec">
+  <rect width="240" height="80" rx="16" fill="#111827" />
+  <rect x="14" y="14" width="42" height="52" rx="10" fill="#F59E0B" />
+  <path d="M24 26h8v20h-8z" fill="#111827" />
+  <path d="M38 26h8v20h-8z" fill="#FDE68A" />
+  <path d="M26 46h14v8H26z" fill="#111827" />
+  <text x="74" y="40" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">GENETEC</text>
+  <text x="74" y="58" fill="#FACC15" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="3">SECURITY SOFTWARE</text>
+</svg>

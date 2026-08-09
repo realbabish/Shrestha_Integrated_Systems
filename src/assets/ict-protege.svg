@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="ICT Protege">
+  <rect width="240" height="80" rx="16" fill="#0F172A" />
+  <rect x="14" y="14" width="44" height="52" rx="10" fill="#FACC15" />
+  <path d="M24 24h24v10H24zM24 38h24v10H24z" fill="#0F172A" />
+  <text x="74" y="39" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">ICT PROTEGE</text>
+  <text x="74" y="58" fill="#34D399" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="3">ACCESS CONTROL</text>
+</svg>

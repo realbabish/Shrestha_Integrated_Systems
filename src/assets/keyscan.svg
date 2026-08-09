@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Keyscan">
+  <rect width="240" height="80" rx="16" fill="#111827" />
+  <rect x="16" y="16" width="42" height="48" rx="10" fill="#FACC15" />
+  <path d="M26 26h22v10H26zM26 40h22v10H26z" fill="#111827" />
+  <text x="74" y="40" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">KEYSCAN</text>
+  <text x="74" y="58" fill="#FB923C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="3">DOOR ACCESS</text>
+</svg>

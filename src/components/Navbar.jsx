@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { 
-  Menu, X, ChevronRight, Zap, Bot, 
+  Menu, X, ChevronRight, Zap, 
   ShieldCheck, Network, Home, Info, 
   Phone, Mail 
 } from "lucide-react"; 
@@ -34,7 +34,6 @@ export default function Navbar() {
 
   const getPath = (item) => {
     if (item.name === "Home") return "/";
-    if (item.name === "Our AI") return "/agent";
     if (item.name === "Quote") return "/Quote";
     return `/${item.name.toLowerCase()}`;
   };
@@ -43,7 +42,6 @@ export default function Navbar() {
     { name: "Home", icon: <Home size={20} /> },
     { name: "Security", icon: <ShieldCheck size={20} /> },
     { name: "Networking", icon: <Network size={20} /> },
-    { name: "Our AI", icon: <Bot size={20} /> },
     { name: "About", icon: <Info size={20} /> }
   ];
 

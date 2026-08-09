@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Wifi } from "lucide-react";
 
+const MotionDiv = motion.div;
+
 export default function LoadingAnimation({ onFinish }) {
   // States: 'idle' -> 'tapping' -> 'granted'
   const [status, setStatus] = useState("idle");
@@ -29,7 +31,7 @@ export default function LoadingAnimation({ onFinish }) {
         <div className="absolute top-24 z-10 w-24 h-36 bg-gradient-to-b from-zinc-800 to-black rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-700 flex flex-col items-center pt-4">
           
           {/* LED Indicator Strip */}
-          <motion.div
+          <MotionDiv
             animate={{
               backgroundColor: status === "granted" ? "#22c55e" : "#3b82f6",
               boxShadow: status === "granted" ? "0 0 20px #22c55e" : "0 0 10px #3b82f6"
@@ -40,18 +42,18 @@ export default function LoadingAnimation({ onFinish }) {
           
           {/* RFID Target Zone */}
           <div className="w-12 h-12 rounded-full border-[1.5px] border-zinc-600/50 flex items-center justify-center">
-            <motion.div
+            <MotionDiv
               animate={{ opacity: status === "granted" ? 1 : [0.3, 0.7, 0.3] }}
               transition={{ repeat: status === "granted" ? 0 : Infinity, duration: 1.5 }}
             >
               <Wifi size={24} className={status === "granted" ? "text-green-500" : "text-zinc-500"} />
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
 
         {/* --- 2. THE RIPPLE/HAPTIC VISUAL ON TAP --- */}
         {status === "granted" && (
-          <motion.div
+          <MotionDiv
             initial={{ scale: 0.5, opacity: 1 }}
             animate={{ scale: 2.5, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -60,7 +62,7 @@ export default function LoadingAnimation({ onFinish }) {
         )}
 
         {/* --- 3. THE KEY FOB --- */}
-        <motion.div
+        <MotionDiv
           initial={{ y: 400, scale: 0.8, rotateZ: -15, rotateX: 30 }}
           animate={{
             y: status === "idle" ? 400 : (status === "tapping" ? 140 : 180),
@@ -78,7 +80,7 @@ export default function LoadingAnimation({ onFinish }) {
           <div className="w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 mt-2 flex items-center justify-center shadow-[inset_0_4px_8px_rgba(0,0,0,0.6)]">
             <div className="w-3 h-3 rounded-full bg-zinc-900" />
           </div>
-        </motion.div>
+        </MotionDiv>
 
       </div>
     </div>
