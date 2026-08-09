@@ -204,7 +204,7 @@ export default function Security() {
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-3 py-1.5 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-yellow-400 mb-5 md:mb-6">
-              <ShieldCheck size={14} className="md:w-4 md:h-4" /> Lead Technician Deployment
+              <ShieldCheck size={14} className="md:w-4 md:h-4" /> Industry Certified & Licensed Technicians.
             </div>
             
             <h1 className="text-[13vw] sm:text-[10vw] md:text-[6rem] lg:text-[7rem] font-black uppercase tracking-tighter leading-[1] md:leading-[0.85] mb-6 md:mb-8 w-full">
@@ -233,12 +233,12 @@ export default function Security() {
                 <Network size={14} className="text-blue-400" /> Network-First Architecture
               </p>
               <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-                We don't just mount cameras—we architect encrypted, isolated network pathways backed by CCNA-level logic to protect both your physical and digital perimeters.
+                We don't just mount cameras—we architect encrypted, isolated network pathways to protect both your physical and digital perimeters.
               </p>
             </div>
             
             <Link to="/Quote" className="inline-flex items-center justify-center gap-3 md:gap-4 w-full sm:w-auto bg-yellow-400 text-black px-8 md:px-10 py-4 font-black uppercase tracking-widest text-[10px] md:text-xs hover:bg-white transition-all shadow-[0_0_20px_rgba(250,204,21,0.2)] rounded-sm">
-              Initialize Project <ChevronRight size={16}/>
+              Let's Connect Today! <ChevronRight size={16}/>
             </Link>
           </div>
           
